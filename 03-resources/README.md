@@ -7,3 +7,7 @@ Size doesn't matter here. A single fact is a single file (`03-resources/sourdoug
 No required structure. Use what the topic needs.
 
 Topics are surfaced by theme in `00-wiki`, which indexes across this folder, `01-projects`, and `02-areas`.
+
+## Contents
+
+- [network/](network/README.md) — modem/router status, ISP-side diagnostics.
