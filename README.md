@@ -22,7 +22,7 @@ Every path in this vault's documentation is relative to the vault root.
 Each folder has its own short `README.md` explaining what belongs there. Those are static signs on the door, not something you maintain.
 
 - `00-raw`: drop anything here as you capture it, including notes, screenshots, links, and voice memos. Don't sort it yourself. That's the agent's job.
-- `00-wiki`: topic indexes, and no content of its own. Each note is mostly `[[wikilinks]]` into the buckets below, grouped by subject. Nothing gets filed here. New indexes start from `templates/wiki-note.md`.
+- `00-wiki`: the vault's start page (`00-wiki/index.md`) plus topic indexes, and no content of its own. Each note is mostly `[[wikilinks]]` into the buckets below, grouped by subject. Nothing gets filed here. New indexes start from `templates/wiki-note.md`.
 - `01-projects/<project>`: anything with a specific goal and an end date (Projects). One folder per project, each with its own status `README.md` from `templates/project-readme.md`, kept current with `prompts/project-digest.md`.
 - `02-areas/<area>`: ongoing responsibilities with no end date (Areas), such as health, finances, or a role at work. Can have a status `README.md` too, from `templates/area-readme.md`.
 - `03-resources`: reference material (Resources). A single fact is a single file; a topic with enough material becomes a folder. This is the default home for anything that isn't a project or an area.

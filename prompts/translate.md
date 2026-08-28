@@ -37,7 +37,7 @@ For each note you filed, find or create its topic index in `00-wiki`:
 
 - **Find the topic.** Look for an existing `00-wiki` note covering this subject. Match on subject rather than filename.
 - **If one exists,** add a `[[wikilink]]` to the new note under the right heading, and update the connective prose if the new material changes how the pieces relate.
-- **If none exists,** decide whether the topic has enough around it to be worth indexing. A subject with one lone note doesn't need an index yet. Two or more related notes across any buckets does. Create it from `templates/wiki-note.md`.
+- **If none exists,** decide whether the topic has enough around it to be worth indexing. A subject with one lone note doesn't need an index yet. Two or more related notes across any buckets does. Create it from `templates/wiki-note.md`, then add a `[[wikilink]]` to it under Topics in `00-wiki/index.md` so it's reachable from the vault's start page.
 - **Never put the content itself in `00-wiki`.** The index links to material in `01-projects`, `02-areas`, and `03-resources`. If you find yourself writing something substantive into a wiki note, it belongs in `03-resources` and the wiki note should link to it.
 
 While you're there, search the live buckets for anything else related and link that too. You only need the link on one side, since Obsidian's backlinks panel shows the reverse direction automatically.

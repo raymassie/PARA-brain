@@ -1,0 +1,36 @@
+---
+created: 2026-08-28
+tags: [index]
+---
+
+# Start here
+
+The front door to this vault. Everything below is either a place to go or a
+subject to follow.
+
+## The buckets
+
+- [01-projects](../01-projects/README.md): work with a goal and a finish line.
+- [02-areas](../02-areas/README.md): responsibilities that never finish.
+- [03-resources](../03-resources/README.md): reference material and interests.
+
+Also: [00-raw](../00-raw/) is where captures land before they're filed, and
+[04-archive](../04-archive/README.md) holds everything inactive.
+
+## Topics
+
+One entry per subject index in `00-wiki`. These cut across the buckets above, so
+a subject that has a project, an area, and three resource notes appears here once.
+
+<!-- Add a [[wikilink]] per topic index as it's created. Empty until the first one exists. -->
+
+## Working the vault
+
+- Process the inbox: run `prompts/translate.md`.
+- Refresh a project or area README: run `prompts/project-digest.md`.
+- Retire what's finished: run `prompts/archive-sweep.md`.
+- Check the vault's health: run `prompts/audit.md`.
+
+<!-- Folder links above are relative markdown links, not wikilinks. Every folder's
+     doc is named README.md, so [[README]] can't resolve to a single one. Links
+     between notes should still use [[wikilinks]]. -->
