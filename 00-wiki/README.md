@@ -6,7 +6,7 @@ Every note with actual content belongs in `01-projects`, `02-areas`, or `03-reso
 
 A wiki note is mostly `[[wikilinks]]`, grouped under headings, with just enough prose to say how the pieces relate. Think of a library card catalog: it tells you where things are and how they connect, and it does not hold the books.
 
-Start new ones from `templates/wiki-note.md`, and add each one to [[index]], the vault's start page, so it's reachable from the front door.
+Start new ones from `templates/wiki-note.md`, and add each one to [[Home]], the vault's start page, so it's reachable from the front door.
 
 ## What belongs in a wiki note
 

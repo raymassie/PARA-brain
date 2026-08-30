@@ -19,10 +19,10 @@ Every path in this vault's documentation is relative to the vault root.
 
 ## Folders
 
-Each folder has its own short `README.md` explaining what belongs there. Those are static signs on the door, not something you maintain.
+There's one file at the top level, `Home.md`, the vault's start page with links into each bucket below. Everything else here is a folder, each with its own short `README.md` explaining what belongs there. Those are static signs on the door, not something you maintain.
 
 - `00-raw`: drop anything here as you capture it, including notes, screenshots, links, and voice memos. Don't sort it yourself. That's the agent's job.
-- `00-wiki`: the vault's start page (`00-wiki/index.md`) plus topic indexes, and no content of its own. Each note is mostly `[[wikilinks]]` into the buckets below, grouped by subject. Nothing gets filed here. New indexes start from `templates/wiki-note.md`.
+- `00-wiki`: topic indexes, and no content of its own. Each note is mostly `[[wikilinks]]` into the buckets below, grouped by subject. Nothing gets filed here. New indexes start from `templates/wiki-note.md`. The vault's start page, `Home.md`, lives at the top level, not in here.
 - `01-projects/<project>`: anything with a specific goal and an end date (Projects). One folder per project, each with its own status `README.md` from `templates/project-readme.md`, kept current with `prompts/project-digest.md`.
 - `02-areas/<area>`: ongoing responsibilities with no end date (Areas), such as health, finances, or a role at work. Can have a status `README.md` too, from `templates/area-readme.md`.
 - `03-resources`: reference material (Resources). A single fact is a single file; a topic with enough material becomes a folder. This is the default home for anything that isn't a project or an area.
@@ -44,10 +44,11 @@ The test for whether something belongs in a wiki note: if deleting the file woul
 
 1. **Capture.** Write or drop anything into `00-raw`. Don't think about where it goes.
 2. **Process.** Ask your agent to run `prompts/translate.md`. It reads `00-raw`, decides what each item is for, files a clean note into `01-projects`, `02-areas`, or `03-resources`, links it into the right `00-wiki` topic index, then moves the original into `04-archive/raw/`.
-3. **Review.** Read whatever bucket you're working out of: projects for active work, areas for ongoing responsibilities, resources for reference. Start at `00-wiki` when you want everything on one subject regardless of which bucket it landed in.
+3. **Review.** Start at `Home.md` for a snapshot of what's active, or `00-wiki` when you want everything on one subject regardless of which bucket it landed in.
 4. **Digest.** Ask your agent to run `prompts/project-digest.md` on a project folder any time you want its README brought up to date.
 5. **Retire.** When a project finishes, an area winds down, or a resource stops being useful, run `prompts/archive-sweep.md`. It finds inactive folders, confirms with you, then moves them into the matching `04-archive` subfolder.
 6. **Audit.** Once a month, run `prompts/audit.md`. See "Keeping it honest" below.
+7. **Front page.** Steps 2 and 5 already keep `Home.md` current on their own. Run `prompts/home-digest.md` by itself only if it falls out of date some other way.
 
 You never file anything by hand. If a note ends up in the wrong bucket, tell your agent and it'll move it. The rule it's following is in `CLAUDE.md`.
 
@@ -57,6 +58,7 @@ You never file anything by hand. If a note ends up in the wrong bucket, tell you
 - `prompts/project-digest.md`: refresh a project's or area's README from its notes.
 - `prompts/archive-sweep.md`: find and retire inactive projects, areas, and resources.
 - `prompts/audit.md`: read-only health check for broken links, duplicates, misfiles, and orphans. Run monthly.
+- `prompts/home-digest.md`: refresh `Home.md`'s status section with what's actually in each bucket. Runs automatically at the end of `translate.md` and `archive-sweep.md`; run it by hand if `Home.md` looks stale for any other reason.
 
 ## Templates
 

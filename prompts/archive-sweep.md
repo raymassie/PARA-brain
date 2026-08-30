@@ -30,3 +30,8 @@ Move the whole folder into the matching `04-archive/projects/`, `04-archive/area
 If any `[[wikilinks]]` elsewhere in the vault point into the folder you moved, note them in
 your report. Obsidian resolves links by filename rather than path, so most keep working,
 but flag any that now point somewhere ambiguous.
+
+## 4. Refresh the front page
+
+Follow `prompts/home-digest.md` to bring `Home.md`'s status section current. Anything
+you moved in step 3 should drop out of its listing.

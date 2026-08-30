@@ -73,6 +73,9 @@ question.
   `01-projects/<name>/` or `02-areas/<name>/` folder.
 - **Retire what's finished:** `prompts/archive-sweep.md`.
 - **Check the vault's health:** `prompts/audit.md`. Reads only, changes nothing.
+- **Refresh the front page:** `prompts/home-digest.md`. Runs automatically as the last
+  step of `prompts/translate.md` and `prompts/archive-sweep.md`; run it by itself if
+  `Home.md` looks stale for some other reason, such as a hand-edited README.
 - **Answer a question about past thinking:** start at `00-wiki` to find the
   subject, follow its links into the buckets, and check `04-archive` if the trail
   goes cold.
