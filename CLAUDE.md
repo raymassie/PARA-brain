@@ -30,12 +30,18 @@ Work down this list. Stop at the first match.
    itself describes something finished, shipped, or abandoned. If either is true,
    it belongs in the matching `04-archive/` subfolder.
 2. **Does it serve a goal that can be completed?** Something with a finish line
-   you could point at. Put it in `01-projects/<project>/`.
+   you could point at. Put it in `01-projects/`. One file when there's a single
+   note so far, using `templates/project-note.md`, with status in its frontmatter;
+   promote to `01-projects/<project>/` with a `README.md` from
+   `templates/project-readme.md` once a second note joins it.
 3. **Does it serve a responsibility that never completes?** A standing obligation
-   with no finish line. Put it in `02-areas/<area>/`.
+   with no finish line. Put it in `02-areas/`. Same pattern as projects: one file
+   from `templates/area-note.md` to start, promoted to `02-areas/<area>/` with a
+   `README.md` once it needs more than one note.
 4. **Everything else is reference.** Put it in `03-resources/`. One file when it's
    one fact; promote to a folder when the subject accumulates enough to need
-   internal structure. Nothing has to earn its way in.
+   internal structure. Nothing has to earn its way in. A resource folder doesn't get
+   its own `README.md`, that's already the `00-wiki` topic index's job.
 
 Those four are the whole list and they leave nothing out. `00-wiki` is not among
 them and never is, for reasons covered in the next section.
@@ -92,9 +98,10 @@ question.
    there; it does not replace it.
 3. `04-archive/raw` is sealed. Once a capture lands there it is never edited again.
 4. Run the decision list above on every item before filing it.
-5. A finished project, a dropped area, or a dead resource moves as a complete
-   folder into the matching `04-archive` subfolder. Live and dead material do not
-   share a parent.
+5. A finished project, a dropped area, or a dead resource moves whole into the
+   matching `04-archive` subfolder, as a complete folder if it was promoted to
+   one, or as the single file if it never grew past that. Live and dead material
+   do not share a parent.
 6. Commit once a batch of work is genuinely done, with a message that says what
    happened, e.g. `translate: 3 inbox files filed`. Verify with `git log` or
    `git status` that it landed before you claim it did.

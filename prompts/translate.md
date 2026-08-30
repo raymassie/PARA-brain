@@ -8,6 +8,7 @@ Read every file in `00-raw`. Process each one fully before moving to the next. A
 - Screenshots and images: read what's actually on them and extract the real information. Don't just note that an image was captured. If your tooling can't read images, say so and leave the file in `00-raw` rather than guessing at its contents.
 - Links: fetch the page if you can. Otherwise file the URL with whatever context came with it.
 - Voice memo transcripts: treat as text.
+- PDFs: read the actual content, not just the headings. If it contains a table (a device status page, a form export, a spreadsheet), transcribe the table into the note rather than compressing it into a range, an average, or "normal-looking numbers." A range silently drops the one value that would flag a real problem. Summarize freely in prose around the table; don't summarize the table itself out of existence.
 - Large binaries such as video, long audio, or big PDFs: extract what you need, then say so in the summary and ask before archiving the original into git. See the note on binaries in `README.md`.
 - If a file's content can't be recovered because it's corrupt or unreadable, say so in the summary and leave it in `00-raw` rather than silently archiving something you couldn't process.
 
@@ -22,9 +23,16 @@ For each idea, apply the Actionability Test in `CLAUDE.md`, then:
 - **Check for an existing match first.** Look through the target bucket for a note or folder already about this. Match on topic rather than exact wording. "Sourdough" and "bread starter" are the same note.
 - If a match exists, merge into it. Read it first, add what's new, don't overwrite what's there.
 - If no match exists, create one. There are three destinations, and `00-wiki` is not among them:
-  - `01-projects/<project>/`: new folder with `README.md` started from `templates/project-readme.md`, then the note itself alongside it.
-  - `02-areas/<area>/`: new folder, plus `README.md` started from `templates/area-readme.md` if the area is worth a status snapshot, then the note itself.
-  - `03-resources/`: a single kebab-case markdown file for a single fact, or a folder once the topic has enough material to need internal structure. There is no size threshold to clear before something can go here.
+  - `01-projects/`: a single kebab-case markdown file from `templates/project-note.md`
+    for a project's first note, with status in its frontmatter. If a project note
+    already exists for this project, this is its second note: promote it into
+    `01-projects/<project>/`, add a `README.md` from `templates/project-readme.md`
+    carrying forward the frontmatter status, move the existing note in alongside
+    the new one, and don't lose the original creation date in the process.
+  - `02-areas/`: same pattern as projects. Start as a single file from
+    `templates/area-note.md`; promote to `02-areas/<area>/` with a `README.md`
+    from `templates/area-readme.md` once a second note joins it.
+  - `03-resources/`: a single kebab-case markdown file for a single fact, or a folder once the topic has enough material to need internal structure. There is no size threshold to clear before something can go here. **Don't add a `README.md` to a resource folder.** That's the wiki index's job; giving the folder its own table of contents just duplicates it.
 - Whichever you start from, replace every placeholder with a real value, using the actual current date and an actual title. Never leave literal `<date>` or `<topic>` text in a filed note.
 - A bare task with no lasting reference value, such as "call the dentist," is neither wiki nor resource material. Don't manufacture a note for it. Call it out separately in the summary so it doesn't vanish, and leave its raw file in `00-raw` as described in step 5.
 - Skip trivial fragments such as a stray word or a dead link with no context rather than manufacturing a note for them. Mention what you skipped and why in the summary.

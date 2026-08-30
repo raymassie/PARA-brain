@@ -23,12 +23,12 @@ There's one file at the top level, `Home.md`, the vault's start page with links 
 
 - `00-raw`: drop anything here as you capture it, including notes, screenshots, links, and voice memos. Don't sort it yourself. That's the agent's job.
 - `00-wiki`: topic indexes, and no content of its own. Each note is mostly `[[wikilinks]]` into the buckets below, grouped by subject. Nothing gets filed here. New indexes start from `templates/wiki-note.md`. The vault's start page, `Home.md`, lives at the top level, not in here.
-- `01-projects/<project>`: anything with a specific goal and an end date (Projects). One folder per project, each with its own status `README.md` from `templates/project-readme.md`, kept current with `prompts/project-digest.md`.
-- `02-areas/<area>`: ongoing responsibilities with no end date (Areas), such as health, finances, or a role at work. Can have a status `README.md` too, from `templates/area-readme.md`.
+- `01-projects`: anything with a specific goal and an end date (Projects). Starts as a single file from `templates/project-note.md`, status in its frontmatter. Promoted to `01-projects/<project>/` with a status `README.md` from `templates/project-readme.md` once a second note shows up, kept current with `prompts/project-digest.md`.
+- `02-areas`: ongoing responsibilities with no end date (Areas), such as health, finances, or a role at work. Same pattern as projects: single file first, promoted to a folder with a `README.md` once it needs one.
 - `03-resources`: reference material (Resources). A single fact is a single file; a topic with enough material becomes a folder. This is the default home for anything that isn't a project or an area.
 - `04-archive/`: everything inactive (Archive). Processed captures as a permanent record, plus dead folders moved here whole from projects, areas, or resources.
 
-Project and area status READMEs are living documents. The rest are written once and left alone.
+Project and area status READMEs are living documents once they exist. A project or area still living as a single file has no README to maintain, it's just a note with frontmatter. The rest are written once and left alone.
 
 ## How the wiki works
 
