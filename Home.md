@@ -31,9 +31,8 @@ Also: [00-raw](00-raw/) is where captures land before they're filed, and
 One entry per subject index in `00-wiki`. These cut across the buckets above, so
 a subject that has a project, an area, and three resource notes appears here once.
 
-- [[network]]
-
-<!-- Add a [[wikilink]] per topic index as it's created. -->
+<!-- Add a [[wikilink]] per topic index as it's created. Empty until a topic
+     spans two or more notes and actually earns one. -->
 
 ## Working the vault
 
