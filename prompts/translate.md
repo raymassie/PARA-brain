@@ -18,7 +18,7 @@ A single capture can hold more than one idea. A voice memo covering a work updat
 
 ## 3. File each item
 
-For each idea, apply the Actionability Test in `CLAUDE.md`, then:
+For each idea, apply the decision list in `Librarian.md`, then:
 
 - **Check for an existing match first.** Look through the target bucket for a note or folder already about this. Match on topic rather than exact wording. "Sourdough" and "bread starter" are the same note.
 - If a match exists, merge into it. Read it first, add what's new, don't overwrite what's there.

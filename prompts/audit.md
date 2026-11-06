@@ -9,13 +9,16 @@ and propose fixes. **Change nothing without confirmation.**
 
 1. **Placeholder leakage.** Any file still containing literal `<date>`, `<topic>`,
    `<project name>`, `YYYY-MM-DD`, or an empty `[[]]`. These mean a template was filled in
-   carelessly and shipped.
-2. **Broken links.** Every `[[wikilink]]` whose target note does not exist. Also flag
+   carelessly and shipped. Exclude intentional examples in instructions and templates.
+2. **Broken links.** Every `[[wikilink]]` or relative Markdown link whose target does not exist. Also flag
    ambiguous ones where two notes in different folders share a filename, since Obsidian
-   resolves by filename and will silently pick one.
+   resolves by filename and will silently pick one. Ignore example links in code blocks,
+   inline code, and comments. Report protected archive issues without editing them.
 3. **Unindexed notes.** Notes in `01-projects`, `02-areas`, or `03-resources` that no
    `00-wiki` index points at. These are stored but not findable by topic, which is the
-   main way material goes missing in this vault. Propose which index should cover them.
+   main way material goes missing in this vault. Propose which index should cover them
+   when at least two related notes justify one; a lone note need not have an index.
+   Exclude bucket instructions and project-owned implementation files.
 4. **Content in the index layer.** Any `00-wiki` note carrying substantive original
    material rather than links and connective prose. That content belongs in
    `03-resources` with the wiki note pointing at it. Propose the move.
@@ -33,6 +36,17 @@ and propose fixes. **Change nothing without confirmation.**
    on the user (expected, by design) from files that failed to process (a problem).
 10. **Frontmatter drift.** Inconsistent date formats or key names across notes, which will
    quietly break any Dataview query or sort built on them.
+11. **Repository boundaries.** Intentional nested repositories are valid. Check for
+   project source tracked by the parent Brain repo, Brain notes tracked by a project
+   repo, missing path-specific implementation exclusions (including archived locations),
+   and ambiguous ownership or backup gaps. Ignore rules alone do not prove tracked
+   files are excluded. Inspect parent and nested status separately without changing
+   either; if Git is unavailable, report the limitation.
+12. **Instruction drift.** `AGENTS.md` should be a regular pointer to `Librarian.md`.
+   Optional tool-specific pointers must not duplicate or contradict the canonical rules.
+13. **Status and action drift.** Check for duplicate live task lists, historical
+   checklists presented as current, unlabeled provisional dates or soft targets,
+   unsupported completion claims, and READMEs that bury current status in transcripts.
 
 ## Report as
 

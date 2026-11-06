@@ -16,4 +16,4 @@ Projects and areas start as a single file and only get promoted to a folder with
 
 Notes in `03-resources` have no template, and resource folders don't get a `README.md` either. That job belongs to the `00-wiki` topic index for the subject; a second table of contents at the folder level just duplicates it.
 
-Every placeholder in these files (`<project name>`, `YYYY-MM-DD`, and so on) must be replaced with a real value before the file is saved. See Hard Rule 8 in `CLAUDE.md`.
+Every placeholder in these files (`<project name>`, `YYYY-MM-DD`, and so on) must be replaced with a real value before a filed note is saved. See Rule 8 in `Librarian.md`. Unknown facts should be labeled unknown rather than invented; template and instruction examples may retain placeholders.

@@ -9,9 +9,10 @@ them, so every file can look "recently modified" when nothing has been touched i
 
 Use these signals instead, in order:
 
-- **Git history:** `git log -1 --format=%cs -- <folder>` gives the real last-change date
-  for a path. This is the reliable signal. If the vault isn't a git repo, say so and fall
-  back to explicit status, below.
+- **Git history:** `git log -1 --format=%cs -- <folder>` gives the last recorded commit
+  date for a path, not the date of all activity. Check uncommitted work and any nested
+  project repository separately. If the vault isn't a git repo, or a path is untracked,
+  say so and use dated evidence and explicit status instead; do not initialize Git.
 - **Explicit status:** for a promoted project, its `README.md` with `**Status:** done`
   / `shipped` / `cancelled`. For a project still living as a single file, the same
   values in its `status` frontmatter. Either way, or a goal that plainly reads as
@@ -24,15 +25,23 @@ For each candidate, report the folder, the signal that flagged it, and its last-
 date. Never move anything without confirmation. Staleness is a judgment call and a
 six-month-old area may be dormant rather than dead.
 
+Distinguish reported completion from direct verification. A passed deadline, an old
+commit, or a checked-off request to someone else does not establish completion.
+
 ## 3. Move on confirmation
 
 Move the whole folder, or the single file if it was never promoted to one, into the
 matching `04-archive/projects/`, `04-archive/areas/`, or `04-archive/resources/`
 subfolder, unchanged. Never delete, never edit contents on the way in.
 
-If any `[[wikilinks]]` elsewhere in the vault point into the folder you moved, note them in
-your report. Obsidian resolves links by filename rather than path, so most keep working,
-but flag any that now point somewhere ambiguous.
+For a project containing an independent repository, preserve its `.git`, uncommitted
+files, and ownership boundary. When a parent Brain repository exists, maintain its
+path-specific exclusions for the old and archived implementation locations before
+moving anything. Do not edit the archived repository or commit on its behalf.
+
+Check affected links in live notes, including relative Markdown links and path-qualified
+wikilinks, and update them for the confirmed move. Report ambiguous targets and broken
+links inside protected archives without editing those records.
 
 ## 4. Refresh the front page
 

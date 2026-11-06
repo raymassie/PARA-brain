@@ -10,4 +10,4 @@ Topics are surfaced by theme in `00-wiki`, which indexes across this folder, `01
 
 ## Contents
 
-- [network/](network/README.md) — modem/router status, ISP-side diagnostics.
+- [network/](network/) — modem/router status, ISP-side diagnostics.

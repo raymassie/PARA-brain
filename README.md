@@ -12,14 +12,14 @@ Every path in this vault's documentation is relative to the vault root.
 ## Setup
 
 1. Copy this whole folder. It's your vault.
-2. Open `CLAUDE.md` and fill in the "About You" section: name, role, how you want notes to sound. `AGENTS.md` is a symlink to it, so any agent looking for either filename sees the same content.
-3. Run `git init` if the folder isn't already a repo. Version control is the safety net behind the "nothing is ever lost" promise, and `prompts/archive-sweep.md` reads git history to tell what's genuinely stale.
+2. Open [Librarian.md](Librarian.md) and fill in "Who you're working for": name, role, and how you want notes to sound. This is the canonical, tool-independent guide. [AGENTS.md](AGENTS.md) is a regular pointer file, not a symlink or a second copy.
+3. Decide how to back up and version your notes. Git is optional; if you choose it, establish the ownership boundaries below before initializing or committing. An agent must not initialize a repository or commit or push without your authorization. Without Git, use explicit status and dated evidence for archive decisions.
 4. Open the folder as an Obsidian vault. The notes are plain markdown and readable anywhere, but `[[wikilinks]]`, backlinks, and graph view are what make `00-wiki` navigable. Logseq, Foam, and Dendron work too. See "Other tools" below.
-5. Point your AI agent at the folder and have it read `CLAUDE.md` first. In Claude Code that's `claude` from inside the folder, then `run prompts/translate.md`.
+5. Give your chosen assistant access to the vault and explicitly ask it to read `AGENTS.md`, `Librarian.md`, and `README.md`, then the prompt for the task. For example: "Read the vault instructions, then follow prompts/translate.md to process the inbox." File discovery and read/write access vary by tool; do not assume a filename or an attachment automatically loads the whole vault. If the assistant cannot access a required source or save changes, it should say so rather than claim the task was done.
 
 ## Folders
 
-There's one file at the top level, `Home.md`, the vault's start page with links into each bucket below. Everything else here is a folder, each with its own short `README.md` explaining what belongs there. Those are static signs on the door, not something you maintain.
+`Home.md` is the vault's start page, alongside the top-level instructions and setup documentation. Each bucket has a short `README.md` explaining what belongs there. Those are static signs on the door, not project status trackers.
 
 - `00-raw`: drop anything here as you capture it, including notes, screenshots, links, and voice memos. Don't sort it yourself. That's the agent's job.
 - `00-wiki`: topic indexes, and no content of its own. Each note is mostly `[[wikilinks]]` into the buckets below, grouped by subject. Nothing gets filed here. New indexes start from `templates/wiki-note.md`. The vault's start page, `Home.md`, lives at the top level, not in here.
@@ -50,7 +50,7 @@ The test for whether something belongs in a wiki note: if deleting the file woul
 6. **Audit.** Once a month, run `prompts/audit.md`. See "Keeping it honest" below.
 7. **Front page.** Steps 2 and 5 already keep `Home.md` current on their own. Run `prompts/home-digest.md` by itself only if it falls out of date some other way.
 
-You never file anything by hand. If a note ends up in the wrong bucket, tell your agent and it'll move it. The rule it's following is in `CLAUDE.md`.
+If a note ends up in the wrong bucket, ask your assistant to correct its placement and affected live links. The filing rules are in `Librarian.md`.
 
 ## Prompts
 
@@ -76,7 +76,22 @@ Everything above writes to the vault. Nothing above checks it, and a second brai
 
 ## Version control
 
-The whole folder should be a git repo. Commit after each batch of captures. Two things depend on it: recovering from a bad merge or a misfile, and `prompts/archive-sweep.md`, which uses git history to tell what's genuinely stale. Filesystem timestamps lie after any clone or sync.
+If you use a root Git repository, it owns Brain material: notes, status summaries, wiki indexes, context, decisions, instructions, templates, and prompts. Project source, tests, assets, build configuration, and implementation documentation may stay physically under `01-projects/<project>/` in their own independent repositories. Neither repository should absorb the other's files. Intentional nested repositories are valid.
+
+For a new project, a layout such as this keeps the boundary clear:
+
+```text
+01-projects/example-project/
+  README.md          # Brain-owned status summary
+  decisions.md       # Brain-owned context
+  implementation/    # Independent project repository, with its own .git
+```
+
+In the parent Brain repository, exclude each implementation tree explicitly. For the example above, the root `.gitignore` entry would be `/01-projects/example-project/implementation/`. If the project is later archived, add the corresponding `/04-archive/projects/example-project/implementation/` exclusion before the move. These are examples, not blanket exclusions for all project notes. Apply the same boundary to project-owned implementation bundles that do not yet have their own repository.
+
+Ignore rules do not remove files already tracked. Inspect parent tracking and both repositories' status and staged files separately before committing. A clean parent says nothing about uncommitted child work. Keep Brain notes outside the child source root for new projects. If an existing mixed root contains Brain notes, protect those notes from project commits with repository-specific exclusions and document any backup gap: a parent cannot reclaim a note inside a wholly ignored tree simply by adding an exception. Propose a specific fix instead of moving source, deleting `.git`, duplicating notes, or silently changing ownership.
+
+Only commit or push when the user has authorized it, and stage the intended files explicitly. Git history shows recorded commits, not all real activity; uncommitted work and sync state also matter. Without Git, state the limitation and use dated evidence and explicit status. Backups remain necessary for anything not versioned.
 
 ## A note on binaries and sync
 
@@ -88,8 +103,8 @@ If you sync this vault across devices (Obsidian Sync, iCloud, Dropbox) *and* use
 
 The vault is plain markdown in plain folders, so any editor can read it. The one hard dependency is `[[wikilinks]]`, which need a tool that resolves them: **Obsidian**, **Logseq**, **Foam** (VS Code), or **Dendron**. Plain markdown viewers, including GitHub's web interface, render `[[like this]]` as literal text and won't link anything.
 
-If you'd rather keep it universally readable, change the linking rule in `CLAUDE.md` and `prompts/translate.md` to relative markdown links (`[text](../00-wiki/note.md)`). You lose backlinks and graph view and gain rendering everywhere.
+If you'd rather keep it universally readable, change the linking rule in `Librarian.md` and `prompts/translate.md` to relative markdown links (`[text](../00-wiki/note.md)`). Backlinks and graph support then depend on your editor, while links render in standard Markdown viewers.
 
-Notion, Evernote, and similar hosted apps can't be used directly. They store notes in a database rather than files on disk, so an agent has no folder to point at. You'd be importing and exporting on every cycle, which defeats the loop.
+Hosted tools need a connector or an import/export workflow that preserves the vault's files and links. Access to a hosted document alone is not access to the local vault. Confirm what your tool can read and write before using it for maintenance.
 
-Any agent that reads `CLAUDE.md` or `AGENTS.md` works: Claude Code, Cursor, Codex, Copilot, Gemini CLI, and others.
+No particular AI provider, model, command-line tool, or editor is required. Use an assistant that can follow the shared instructions and has the file access needed for the task. If a tool requires a vendor-specific startup file, keep it as an optional thin pointer to `Librarian.md`; do not fork the rules into a separate guide.
