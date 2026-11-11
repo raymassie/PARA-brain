@@ -32,10 +32,14 @@ commit, or a checked-off request to someone else does not establish completion.
 
 Move the whole folder, or the single file if it was never promoted to one, into the
 matching `04-archive/projects/`, `04-archive/areas/`, or `04-archive/resources/`
-subfolder, unchanged. Never delete, never edit contents on the way in.
+subfolder, unchanged. Never delete, never edit contents on the way in. Check
+whether the destination exists before moving; choose a unique sibling name rather
+than overwriting or merging into an existing archive record. Verify the destination
+and preserved contents before reporting the move complete. If a move's outcome is
+uncertain, inspect source and destination before retrying.
 
 For a project containing an independent repository, preserve its `.git`, uncommitted
-files, and ownership boundary. When a parent Brain repository exists, maintain its
+files, and ownership boundary. When a parent vault repository exists, maintain its
 path-specific exclusions for the old and archived implementation locations before
 moving anything. Do not edit the archived repository or commit on its behalf.
 

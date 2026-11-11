@@ -1,2 +1,8 @@
 .DS_Store
 _to_delete/
+
+# Private local preferences and temporary runtime output
+/config.local.json
+/.runtime/
+/logs/
+__pycache__/

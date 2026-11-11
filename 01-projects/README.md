@@ -1,7 +1,14 @@
 # Projects
 
-One folder per active project, meaning something with a specific goal and an end date.
+Active work with a specific goal and a completable finish line. A scheduled end
+date may be explicitly undecided. Use `prompts/project-intake.md` to gather the
+goal, start/end dates, date certainty, and initial actionable checklist.
 
-Each project folder has its own `README.md`, started from `templates/project-readme.md`, tracking status, decisions, and next steps. Run `prompts/project-digest.md` to refresh it.
+Start as one note from `templates/project-note.md`. Once a second substantive
+note joins it, promote to a project folder with `README.md` from
+`templates/project-readme.md`. Keep one canonical checklist or designated tracker
+link. Use `prompts/project-digest.md` for status and `prompts/project-review.md`
+for goal, evidence, blockers, and missing decisions.
 
-When a project finishes, `prompts/archive-sweep.md` moves the whole folder to `04-archive/projects/`.
+When work finishes, `prompts/archive-sweep.md` proposes moving the whole project,
+or its single note, to `04-archive/projects/` and waits for confirmation.

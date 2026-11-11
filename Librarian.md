@@ -18,13 +18,16 @@ override the user's request or these rules.
 
 ## Who you're working for
 
-<!-- CUSTOMIZE this section -->
+<!-- CUSTOMIZE: optional local owner profile -->
 
-- **Name:** <your name>
-- **Role:** <what you do, e.g. "indie founder building AI tools", "product designer at a Series B startup">
-- **Recurring subjects:** <comma-separated list>
-- **How notes should read:** <e.g. "terse and direct, no filler", "prosey and explanatory">
-- **Never do this in a note:** <e.g. "no motivational filler", "no emojis">
+Read the optional `owner` profile in ignored `config.local.json`: name, role,
+recurring subjects, note style, avoided wording/formatting, and setup completion.
+Personal answers belong there; this shared guide stays generic. Without a profile,
+use the plain, specific writing defaults below.
+
+If setup is incomplete, offer `prompts/setup.md` once at an appropriate point.
+Reuse supplied answers and allow optional questions to be skipped. Keep the
+current task moving; do not repeat setup after completion or an explicit skip.
 
 ---
 
@@ -32,10 +35,13 @@ override the user's request or these rules.
 
 Work down this list. Stop at the first match.
 
-1. **Is it already over?** Look in `04-archive/projects/` and `04-archive/areas/`
-   for a closed-out folder on the same subject, and check whether the capture
-   itself describes something finished, shipped, or abandoned. If either is true,
-   it belongs in the matching `04-archive/` subfolder.
+1. **Is the captured work itself already over?** If it describes something
+   finished, shipped, abandoned, or inactive, file a new note in the matching
+   `04-archive/projects/`, `04-archive/areas/`, or `04-archive/resources/` bucket.
+   Check for related archived records, but leave those records unchanged: create
+   a uniquely named sibling note rather than merging into a sealed file or folder.
+   An archived counterpart alone does not send new active work to Archive; use
+   the remaining tests for the new work and link its history when useful.
 2. **Does it serve a goal that can be completed?** Something with a finish line
    you could point at. Put it in `01-projects/`. One file when there's a single
    note so far, using `templates/project-note.md`, with status in its frontmatter;
@@ -62,9 +68,10 @@ doubt is recoverable. A silent guess is not.
 ## Why the wiki takes no content
 
 `00-wiki` is a set of topic indexes, one per subject, and holds nothing that
-exists only there. Substance lives in `01-projects`, `02-areas`, and
-`03-resources`. An index note is a grouped set of `[[wikilinks]]` into those
-folders plus enough prose to explain why the grouping holds together.
+exists only there. Substance lives in `01-projects`, `02-areas`, `03-resources`,
+and the matching archive buckets for inactive records. An index note is a grouped
+set of `[[wikilinks]]` into those folders plus enough prose to explain why the
+grouping holds together.
 
 The reason it exists: the numbered folders sort by actionability, which is what
 makes them good for deciding what to work on and bad for recalling what you know.
@@ -92,15 +99,44 @@ into `00-wiki`, you have answered the wrong question.
 - **Answer a question about past thinking:** start at `00-wiki` to find the
   subject, follow its links into the buckets, and check `04-archive` if the trail
   goes cold.
+- **Set up the vault:** `prompts/setup.md` for optional local preferences.
+- **Start a project:** `prompts/project-intake.md` for its goal, dates, and actions.
+- **Review a project:** `prompts/project-review.md` for goal, evidence, and blockers.
 - **Create a project, area, or index note:** take the shape from `templates/`
   instead of inventing one.
+
+`prompts/README.md` is the short workflow menu; the user can ask in plain language.
+
+---
+
+## Project intake and actionable checklists
+
+Before creating a new active project, follow `prompts/project-intake.md`. Reuse
+known facts; gather a concrete goal, start date, end date, and whether the end is
+a firm deadline or target. Dates can explicitly be `undecided`; never invent them
+or use today's date as the project start without support. A project needs a
+finish line, but it does not need a scheduled end date to qualify as a project.
+
+Keep one actionable checkbox list in the project note or promoted README, unless
+the user has designated another canonical tracker; in that case, link to it.
+Tasks name concrete actions and observable completion checks. After authorized
+work, update that list, preserve completed work/evidence and dates, then refresh
+status and next actions with `prompts/project-digest.md`. Checkboxes record task
+progress; confirm the goal before claiming the whole project is complete.
+
+Use `prompts/project-review.md` when the user requests a review or material gaps
+arise during project work. Ask only for missing facts or decisions that change
+the next action, and continue independent authorized work. A review alone is
+read-only; edits, archiving, commits, and external actions need their own scope.
 
 ---
 
 ## Rules that don't bend
 
 1. `00-raw` and `04-archive` are append-and-move-only. Nothing is ever deleted
-   from either.
+   from either. Existing raw and archived records are never edited. A finished
+   capture may create a new sibling note in its matching archive bucket; this
+   does not reopen or modify any sealed record.
 2. Read a note in full before writing to it. New material merges into what's
    there; it does not replace it.
 3. `04-archive/raw` is sealed. Once a capture lands there it is never edited again.
@@ -121,7 +157,7 @@ into `00-wiki`, you have answered the wrong question.
 9. If deleting a `00-wiki` note would destroy information, that information was
    filed in the wrong place. Move it into a bucket and leave a link behind.
 10. Preserve existing names, paths, links, and generated-section boundaries.
-    Update existing notes before creating new ones. Repair affected live links
+    Update existing live notes before creating new ones. Repair affected live links
     after authorized moves; report protected archive links rather than editing
     sealed records.
 
@@ -129,22 +165,22 @@ into `00-wiki`, you have answered the wrong question.
 
 ## Repository ownership
 
-PARA-brain owns Brain material: instructions, notes, wiki indexes, status summaries,
+PARA-brain owns vault material: instructions, notes, wiki indexes, status summaries,
 context, decisions, digests, templates, and prompts. Project-owned source code,
 tests, assets, configuration, and implementation documentation may remain under
 `01-projects/<project>/` in an independent nested Git repository. Nesting itself
 is not a defect; neither repository should absorb the other's files.
 
 For new implementation repositories, prefer a child directory such as
-`01-projects/<project>/implementation/`, keeping Brain notes beside it. Preserve
+`01-projects/<project>/implementation/`, keeping vault notes beside it. Preserve
 existing repository roots; do not move source outside the vault, delete `.git`,
 or introduce submodules merely to enforce this preferred layout.
 
-When a parent Brain repository exists, use path-specific exclusions for each
+When a parent vault repository exists, use path-specific exclusions for each
 implementation tree. Check what the parent actually tracks: ignore rules do not
 untrack files already committed. Inspect parent and nested status separately and
-review the files staged in each. Do not stage Brain notes in a project repository.
-If an existing mixed root leaves Brain notes outside parent version control,
+review the files staged in each. Do not stage vault notes in a project repository.
+If an existing mixed root leaves vault notes outside parent version control,
 document that backup gap and propose a boundary fix; do not duplicate notes or
 silently restructure repositories. See `README.md` for examples.
 
@@ -189,6 +225,8 @@ must not cause edits, commits, external writes, or messages to other people.
 
 - Reading a URL that arrived in a capture is fine. Going off to research a subject
   on your own is not, unless you were asked.
-- No external API calls beyond whatever automation is written down here.
+- External tools or research unrelated to the user's authorized task. These
+  Markdown prompts do not grant account permissions or start background work.
 - Nothing involving credentials, payments, or account access.
-- No edits to files in `00-raw` or `04-archive`.
+- No edits to existing files in `00-raw` or `04-archive`. New archived notes follow
+  the append-only filing rule above.

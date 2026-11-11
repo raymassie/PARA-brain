@@ -1,6 +1,7 @@
-# Agent Instructions
+# Agent entry point
 
-The instructions for this vault live in **`Librarian.md`**. Read that file.
+Read `Librarian.md` for this vault's canonical rules, then `README.md` for its
+layout and the relevant task prompt from `prompts/README.md`.
 
-This is a pointer rather than a copy, so the two can't drift apart, and a real file
-rather than a symlink, so it survives checkout on Windows.
+This regular file is a pointer, not a duplicate guide or a symlink. The rules are
+independent of any AI provider, model, or editor.

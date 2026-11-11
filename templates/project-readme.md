@@ -2,10 +2,14 @@
 
 **Status:** active
 **Goal:** <what "done" looks like>
-**Started:** <date>
+**Started:** <start date or undecided>
+**Due:** <end date or undecided>
+**End date type:** <deadline, target, or undecided>
 
 ## Current state
 
 ## Decisions
 
-## Next steps
+## Next steps	
+
+- [ ] <Concrete action and observable completion check>

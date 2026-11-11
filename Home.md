@@ -34,8 +34,13 @@ a subject that has a project, an area, and three resource notes appears here onc
 <!-- Add a [[wikilink]] per topic index as it's created. Empty until a topic
      spans two or more notes and actually earns one. -->
 
-## Working the vault
+## Ask the Librarian
 
+Ask in plain language, or use a prompt from `prompts/README.md`:
+
+- Help customize my vault: `prompts/setup.md`.
+- Start a project with a goal, dates, and checklist: `prompts/project-intake.md`.
+- Review my project's progress, evidence, and blockers: `prompts/project-review.md`.
 - Process the inbox: run `prompts/translate.md`.
 - Refresh a project or area README: run `prompts/project-digest.md`.
 - Retire what's finished: run `prompts/archive-sweep.md`.
