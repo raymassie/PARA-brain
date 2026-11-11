@@ -8,7 +8,7 @@ It combines two ideas:
 - **[PARA](https://fortelabs.com/blog/para/)**: file by *actionability* (what you're going to do with something) rather than by subject. Four buckets: Projects (has a completable finish line), Areas (ongoing, no end date), Resources (reference material), Archive (inactive).
 
 For optional specialist agents, a local task desk, and report tools, see
-[PARA-librarian](https://github.com/raymassie/PARA-librarian). This repository
+[PARA-workbench](https://github.com/raymassie/PARA-workbench). This repository
 keeps the plain Markdown foundation; both use the same model-neutral guide.
 
 Every path in this vault's documentation is relative to the vault root.
