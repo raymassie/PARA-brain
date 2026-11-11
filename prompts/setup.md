@@ -11,7 +11,13 @@ Ask compact questions, no more than three at once:
 
 1. What should I call you, and what work or responsibilities should this vault support?
 2. What subjects recur, and how should your notes read?
-3. What wording, formatting, or behavior should I avoid?
+3. What wording, formatting, or behavior should I avoid, and how should I handle unclear details?
+
+Save an accepted uncertainty-handling preference in
+`owner.when_details_are_unclear`. This optional string may stay blank; missing
+or blank values use the uncertainty rules in `Librarian.md`. Preserve an existing
+value unless the user changes it. Do not restart completed setup just because an
+older profile lacks this field.
 
 Allow optional identity/context questions to be skipped or the shared defaults
 accepted. Clarify only an answer that materially changes behavior. Briefly show
