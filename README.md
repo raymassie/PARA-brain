@@ -21,6 +21,37 @@ Every path in this vault's documentation is relative to the vault root.
 4. Open the folder as an Obsidian vault. The notes are plain markdown and readable anywhere, but `[[wikilinks]]`, backlinks, and graph view are what make `00-wiki` navigable. Logseq, Foam, and Dendron work too. See "Other tools" below.
 5. Give your chosen assistant access to the vault and explicitly ask it to read `AGENTS.md`, `Librarian.md`, and `README.md`, then the prompt for the task. For example: "Read the vault instructions, then follow prompts/translate.md to process the inbox." File discovery and read/write access vary by tool; do not assume a filename or an attachment automatically loads the whole vault. If the assistant cannot access a required source or save changes, it should say so rather than claim the task was done.
 
+## Updating an in-use vault
+
+This repository is the master setup; your working vault contains your own notes
+and local choices. A setup update merges shared instructions, prompts, templates,
+configuration examples, and folder guidance. It does not synchronize working
+content with this repository.
+
+1. Read the current local instructions, owner preferences, and documented
+   exceptions. Obtain a separate copy of the master at a known revision and
+   compare the setup files. Do not clone over an in-use vault or initialize Git
+   there just to perform an update.
+2. Back up the affected local files. Merge setup changes into mixed files such
+   as `Home.md` and bucket READMEs, preserving their working status listings,
+   topic indexes, links, and history. Do not replace them with empty starter
+   listings or import the master's working/example notes.
+3. Preserve `config.local.json`, project-specific ignore rules, and independent
+   implementation repositories. Do not alter raw or archived records, remove
+   local-only working files, or absorb nested repositories into a parent.
+4. Retain explicitly approved local exceptions and keep affected workflows
+   consistent with them. Clarify a material unresolved conflict before applying
+   the conflicting change; do not silently replace the owner's rule.
+5. Review the changed paths and check links, configuration, preserved working
+   sections, and repository boundaries. Record the master revision and any
+   retained exceptions locally, and report what changed and what was verified.
+   Do not claim a Git synchronization or commit when only files were updated.
+
+When contributing improvements back, prepare a separate change containing only
+reusable setup guidance. Keep personal preferences, working notes, generated
+status, project-specific exclusions, and local exceptions out of the master.
+Updating a vault does not itself authorize a commit or push.
+
 ## Folders
 
 `Home.md` is the vault's start page, alongside the top-level instructions and setup documentation. Each bucket has a short `README.md` explaining what belongs there. Those are static signs on the door, not project status trackers.
@@ -129,6 +160,10 @@ If you sync this vault across devices (Obsidian Sync, iCloud, Dropbox) *and* use
 answers to ignored `config.local.json`, preserving any unrelated local keys. Keep
 personal values out of shared instructions and templates. No setup script, service,
 or background process is required; the core is Markdown files and folders.
+
+The optional `owner.when_details_are_unclear` string records how you prefer
+ambiguity to be handled. An absent or blank value uses the uncertainty rules in
+`Librarian.md`; existing profiles remain valid without this field or another setup.
 
 ## Other tools
 

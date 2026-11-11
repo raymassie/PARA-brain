@@ -21,7 +21,10 @@ override the user's request or these rules.
 <!-- CUSTOMIZE: optional local owner profile -->
 
 Read the optional `owner` profile in ignored `config.local.json`: name, role,
-recurring subjects, note style, avoided wording/formatting, and setup completion.
+recurring subjects, note style, avoided wording/formatting, uncertainty handling,
+and setup completion. `owner.when_details_are_unclear` optionally describes how
+the user wants ambiguity handled. If absent or blank, use the existing uncertainty
+rules; do not invent facts or treat a preference as permission for unapproved work.
 Personal answers belong there; this shared guide stays generic. Without a profile,
 use the plain, specific writing defaults below.
 

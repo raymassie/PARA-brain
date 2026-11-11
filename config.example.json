@@ -5,6 +5,7 @@
     "recurring_subjects": [],
     "note_style": "plain, specific, concise",
     "avoid": [],
+    "when_details_are_unclear": "",
     "setup_complete": false
   }
 }
