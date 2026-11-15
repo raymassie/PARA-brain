@@ -9,8 +9,8 @@ AI model, account, or hosted capture service is required.
 
 Install [Node.js](https://nodejs.org/) 22 or newer. From the vault root:
 
-- **macOS:** double-click `Start PARA Clipper.command`.
-- **Windows:** double-click `Start PARA Clipper.cmd`.
+- **macOS:** double-click `Start PARA Clipper - macOS.command`.
+- **Windows:** double-click `Start PARA Clipper - Windows.cmd`.
 - **Linux or any terminal:** run `node scripts/web-clipper/start.mjs`.
 
 The launcher installs the pinned dependencies with `npm ci --ignore-scripts` on
