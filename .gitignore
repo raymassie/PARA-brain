@@ -6,3 +6,6 @@ _to_delete/
 /.runtime/
 /logs/
 __pycache__/
+
+# Temporary captures are fully written here before publication to the inbox.
+.para-clipper-pending/

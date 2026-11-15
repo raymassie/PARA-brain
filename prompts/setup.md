@@ -33,3 +33,11 @@ shared instructions, Home, templates, or logs. The user can reopen setup anytime
 
 Finish by pointing to Home's “Ask the Librarian” menu and `prompts/README.md`.
 Describe available workflows accurately; selecting one does not mean it ran.
+
+Include the built-in web clipper in the setup handoff. Follow
+`scripts/web-clipper/README.md` for the Node.js prerequisite, platform launcher,
+and one-time bookmark installation. The helper detects this vault’s `00-raw`;
+personal folder/port overrides stay in its ignored local settings. Explain that
+Save creates a new capture, while `prompts/translate.md` separately processes it
+and moves the original unchanged into `04-archive/raw`. Launch or install only
+within the user’s requested setup scope; do not imply a background service exists.

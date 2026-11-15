@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PARA Clipper</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="wordmark" href="/" aria-label="PARA Clipper home"><span class="mark" aria-hidden="true">↘</span> PARA <span>CLIPPER</span></a>
+      <button id="settings-toggle" class="quiet" aria-expanded="false" aria-controls="settings">Settings</button>
+    </header>
+    <section id="settings" class="settings" hidden>
+      <h2>Your inbox</h2>
+      <p>Captures go straight into this folder. The default is this vault’s <code>00-raw</code>.</p>
+      <form id="settings-form"><label for="inbox">Full folder path</label><div class="inline"><input id="inbox" required autocomplete="off" spellcheck="false"><button type="submit">Use this folder</button></div></form>
+      <p class="fine">The helper runs on this computer. Keep its terminal window open while clipping.</p>
+    </section>
+    <main>
+      <section class="intro">
+        <div class="eyebrow"><span class="dot"></span> YOUR WEB. YOUR FILES.</div>
+        <h1>Keep what<br>caught your eye.</h1>
+        <p>Save a page or a passage to your inbox.<br>Come back to make sense of it later.</p>
+        <div class="bookmark-install">
+          <a id="bookmarklet" class="bookmark" draggable="true" href="#">↘ Clip to PARA</a>
+          <span>Drag to your bookmarks bar.<br>Click it on any article to capture.</span>
+        </div>
+        <details class="manual-install"><summary>Can’t drag a bookmark?</summary><p>Create a browser bookmark named “Clip to PARA” and paste this into its URL field.</p><textarea id="bookmark-code" readonly aria-label="Bookmarklet URL" rows="3" spellcheck="false"></textarea><button id="copy-bookmark" class="quiet">Copy bookmark URL</button></details>
+        <div class="destination"><span>SAVING INTO</span><strong id="destination">Connecting…</strong></div>
+      </section>
+      <section class="capture-panel" aria-label="Capture editor">
+        <div class="panel-top"><span class="eyebrow">NEW CAPTURE</span><span id="capture-kind" class="badge">READY WHEN YOU ARE</span></div>
+        <form id="capture-form">
+          <label for="url">Source URL <span class="optional">optional for pasted text</span></label>
+          <div class="inline"><input id="url" type="url" placeholder="https://…" autocomplete="off"><button id="load-url" type="button" class="secondary">Load page</button></div>
+          <div class="field-head"><label for="content">Content</label><button id="paste-text" type="button" class="text-button">Paste text</button></div>
+          <textarea id="content" rows="11" placeholder="Use the bookmarklet on a page, load a URL, or paste the passage you want to keep." spellcheck="false"></textarea>
+          <label for="title">Title</label><input id="title" placeholder="Give this capture a name" required>
+          <details class="notes"><summary>Add your notes or edit source details</summary>
+            <label for="notes">Your notes</label><textarea id="notes" rows="3" placeholder="Why did you save this?"></textarea>
+            <div class="source-fields"><div><label for="author">Author</label><input id="author"></div><div><label for="published">Published</label><input id="published" placeholder="As given by the source"></div></div>
+          </details>
+          <div class="save-row"><span id="word-count">0 words · Markdown</span><button id="save" type="submit" disabled>Save to 00-raw <span aria-hidden="true">↗</span></button></div>
+        </form>
+        <div id="status" role="status" aria-live="polite">Full articles keep their links, images, and formatting as Markdown.</div>
+      </section>
+    </main>
+    <footer><span>CAPTURE FIRST. ORGANIZE LATER.</span><span>Local files · No account · No extension</span></footer>
+  </div>
+</body>
+</html>

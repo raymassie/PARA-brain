@@ -20,6 +20,36 @@ Every path in this vault's documentation is relative to the vault root.
 3. Decide how to back up and version your notes. Git is optional; if you choose it, establish the ownership boundaries below before initializing or committing. An agent must not initialize a repository or commit or push without your authorization. Without Git, use explicit status and dated evidence for archive decisions.
 4. Open the folder as an Obsidian vault. The notes are plain markdown and readable anywhere, but `[[wikilinks]]`, backlinks, and graph view are what make `00-wiki` navigable. Logseq, Foam, and Dendron work too. See "Other tools" below.
 5. Give your chosen assistant access to the vault and explicitly ask it to read `AGENTS.md`, `Librarian.md`, and `README.md`, then the prompt for the task. For example: "Read the vault instructions, then follow prompts/translate.md to process the inbox." File discovery and read/write access vary by tool; do not assume a filename or an attachment automatically loads the whole vault. If the assistant cannot access a required source or save changes, it should say so rather than claim the task was done.
+6. Set up the included web clipper: install [Node.js](https://nodejs.org/) 22+, then open `Start PARA Clipper.command` (macOS), `Start PARA Clipper.cmd` (Windows), or run `node scripts/web-clipper/start.mjs` (Linux/terminal). First launch prepares its dependencies and opens the local setup page. Drag **Clip to PARA** to your browser’s bookmarks bar. No extension, Obsidian, or AI service is needed for capture.
+
+## Built-in web capture
+
+Start the clipper with the launcher above and leave its terminal window open while
+clipping. The setup/editor is at [PARA Clipper](http://127.0.0.1:27123/) while it is
+running. Click **Clip to PARA** on a web page to capture the article; select text
+first to capture just that passage. Review the editable Markdown and source
+details, add optional personal notes, then click **Save to 00-raw**.
+
+Each save creates a new `.md` file in this vault’s `00-raw`, with a timestamped
+filename, source URL, available author/publication date, capture time, content,
+and your notes. Existing captures are never overwritten. Settings can point to
+another existing inbox, and stay local to your copy. Share the repository; the
+same built-in tool works with plain Markdown and any assistant with file access.
+
+Saving captures does **not** automatically process the inbox. When ready, ask:
+**“Read the vault instructions and follow prompts/translate.md to process the
+inbox.”** The Librarian reads the captures, creates or updates notes in the
+appropriate PARA bucket, adds relevant wiki links when justified, moves each
+untouched original to `04-archive/raw`, and refreshes `Home.md`. The original
+capture remains a permanent source record.
+
+Some sites or browsers block bookmarklets or form submission. Use **Load
+page** for a public URL or paste copied text into the editor. URL loading does not
+have your browser’s login session. Images remain links, rather than downloaded
+offline copies. Full setup, limitations, sharing, and maintenance instructions
+are in the [clipper guide](scripts/web-clipper/README.md). The helper runs locally
+only while you keep it open; Control-C stops it. The core Markdown workflow still
+works without running the clipper.
 
 ## Updating an in-use vault
 
@@ -130,6 +160,12 @@ status, and repository boundaries. Review its findings and authorize the fixes y
 want. Use `prompts/project-review.md` for a project's goal, evidence, and next actions.
 
 ## Version control
+
+When preparing this framework repository for distribution, leave the numbered
+PARA folders as starter content. Keep framework development trackers outside that
+content and run test captures in temporary vaults. Built-in feature source,
+tests, and guides ship under `scripts/`; local settings and dependencies stay
+ignored. The source checkout itself is the development project.
 
 If you use a root Git repository, it owns vault material: notes, status summaries, wiki indexes, context, decisions, instructions, templates, and prompts. Project source, tests, assets, build configuration, and implementation documentation may stay physically under `01-projects/<project>/` in their own independent repositories. Neither repository should absorb the other's files. Intentional nested repositories are valid.
 

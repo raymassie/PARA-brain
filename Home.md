@@ -36,6 +36,10 @@ a subject that has a project, an area, and three resource notes appears here onc
 
 ## Ask the Librarian
 
+For web capture, open `Start PARA Clipper.command` (macOS),
+`Start PARA Clipper.cmd` (Windows), or run `node scripts/web-clipper/start.mjs`.
+The [clipper guide](scripts/web-clipper/README.md) covers setup and saving to `00-raw`.
+
 Ask in plain language, or use a prompt from `prompts/README.md`:
 
 - Help customize my vault: `prompts/setup.md`.
