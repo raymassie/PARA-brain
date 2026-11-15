@@ -7,7 +7,11 @@ AI model, account, or hosted capture service is required.
 
 ## Set up and launch
 
-Install [Node.js](https://nodejs.org/) 22 or newer. From the vault root:
+The clipper requires [Node.js](https://nodejs.org/) 22 or newer and a terminal
+window that stays open while you clip. The macOS and Windows launchers open
+Terminal or Command Prompt for you. On Linux, open a terminal yourself.
+
+Install Node.js first, then start the clipper from the vault root:
 
 - **macOS:** double-click `Start PARA Clipper - macOS.command`.
 - **Windows:** double-click `Start PARA Clipper - Windows.cmd`.
@@ -15,8 +19,9 @@ Install [Node.js](https://nodejs.org/) 22 or newer. From the vault root:
 
 The launcher installs the pinned dependencies with `npm ci --ignore-scripts` on
 first use, then opens the local clipper. That first launch needs internet access.
-Subsequent bookmarklet capture and saving work locally. Keep the terminal window
-open while clipping; Control-C stops the helper. Nothing is installed as a service.
+Subsequent bookmarklet capture and saving work locally. You can minimize the
+terminal window, but closing it stops the clipper. Press Control-C in that window
+when you want to stop it. Nothing is installed as a service.
 
 On the setup page, drag **Clip to PARA** to the bookmarks bar. If dragging is
 unavailable, expand **Can’t drag a bookmark?**, copy the URL, create a browser

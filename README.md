@@ -20,13 +20,16 @@ Every path in this vault's documentation is relative to the vault root.
 3. Decide how to back up and version your notes. Git is optional; if you choose it, establish the ownership boundaries below before initializing or committing. An agent must not initialize a repository or commit or push without your authorization. Without Git, use explicit status and dated evidence for archive decisions.
 4. Open the folder as an Obsidian vault. The notes are plain markdown and readable anywhere, but `[[wikilinks]]`, backlinks, and graph view are what make `00-wiki` navigable. Logseq, Foam, and Dendron work too. See "Other tools" below.
 5. Give your chosen assistant access to the vault and explicitly ask it to read `AGENTS.md`, `Librarian.md`, and `README.md`, then the prompt for the task. For example: "Read the vault instructions, then follow prompts/translate.md to process the inbox." File discovery and read/write access vary by tool; do not assume a filename or an attachment automatically loads the whole vault. If the assistant cannot access a required source or save changes, it should say so rather than claim the task was done.
-6. Set up the included web clipper: install [Node.js](https://nodejs.org/) 22+, then open `Start PARA Clipper - macOS.command` (macOS), `Start PARA Clipper - Windows.cmd` (Windows), or run `node scripts/web-clipper/start.mjs` (Linux/terminal). First launch prepares its dependencies and opens the local setup page. Drag **Clip to PARA** to your browser’s bookmarks bar. No extension, Obsidian, or AI service is needed for capture.
+6. Set up the included web clipper. It requires [Node.js](https://nodejs.org/) 22+ and a terminal window that stays open while you clip. Install Node.js, then double-click `Start PARA Clipper - macOS.command` or `Start PARA Clipper - Windows.cmd`. The launcher opens Terminal on macOS or Command Prompt on Windows and starts the clipper. On Linux, open a terminal and run `node scripts/web-clipper/start.mjs`. First launch prepares its dependencies and opens the setup page in your browser. Drag **Clip to PARA** to your browser’s bookmarks bar. No extension, Obsidian, or AI service is needed for capture.
 
 ## Built-in web capture
 
-Start the clipper with the launcher above and leave its terminal window open while
-clipping. The setup/editor is at [PARA Clipper](http://127.0.0.1:27123/) while it is
-running. Click **Clip to PARA** on a web page to capture the article; select text
+**A terminal window must remain open while you use the clipper.** The launcher
+opens Terminal on macOS or Command Prompt on Windows and runs the local helper
+there. You can minimize that window; closing it stops the clipper.
+
+The launcher also opens [PARA Clipper](http://127.0.0.1:27123/) in your browser.
+Click **Clip to PARA** on a web page to capture the article; select text
 first to capture just that passage. Review the editable Markdown and source
 details, add optional personal notes, then click **Save to 00-raw**.
 
