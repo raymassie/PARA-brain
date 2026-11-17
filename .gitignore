@@ -9,3 +9,7 @@ __pycache__/
 
 # Temporary captures are fully written here before publication to the inbox.
 .para-clipper-pending/
+
+# Optional local report configuration and runtime diagnostics
+/System/assistant.local.json
+/System/logs/

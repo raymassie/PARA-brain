@@ -1,10 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdtemp, mkdir, readFile, readdir, realpath, rm, symlink, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import vm from 'node:vm';
 import http from 'node:http';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { extractCapture, renderNote, saveCapture, sourceURL } from '../lib/clip.mjs';
 import { createClipper } from '../server.mjs';
@@ -16,6 +17,24 @@ const html = `<!doctype html><html><head><title>A useful article</title><meta na
 <p>Here is a <a href="/reference">reference link</a> and a second paragraph with enough information to explain what the author intended. Captures remain unchanged until they move into a permanent raw archive.</p>
 <pre><code class="language-js">const answer = 42;</code></pre>
 <p><img src="/diagram.png" alt="A diagram"></p></article><input value="private-field"><script>alert('never run')</script></body></html>`;
+
+test('a copied System layout finds its own raw inbox and retains private overrides', async t => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'PARA vault with spaces-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const inbox = path.join(root, '00-raw'); await mkdir(inbox);
+  const copied = path.join(root, 'System', 'scripts', 'web-clipper'); await mkdir(copied, { recursive: true });
+  const source = fileURLToPath(new URL('../', import.meta.url));
+  for (const name of ['server.mjs', 'package.json', 'defaults.json', 'lib', 'public']) {
+    await cp(path.join(source, name), path.join(copied, name), { recursive: true });
+  }
+  await symlink(path.join(source, 'node_modules'), path.join(copied, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
+  const { readConfig } = await import(pathToFileURL(path.join(copied, 'server.mjs')).href);
+  assert.equal((await readConfig()).inbox, await realpath(inbox));
+  assert.equal((await readConfig()).port, 27123);
+  const custom = path.join(root, 'personal inbox'); await mkdir(custom);
+  await writeFile(path.join(copied, 'config.local.json'), JSON.stringify({ inbox: custom, port: 27200 }));
+  assert.deepEqual(await readConfig(), { inbox: custom, port: 27200 });
+});
 
 test('extracts article metadata, Markdown links, code, and image references without active content', () => {
   const clip = extractCapture({ url: 'https://example.com/story', html });

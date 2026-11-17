@@ -28,7 +28,7 @@ rules; do not invent facts or treat a preference as permission for unapproved wo
 Personal answers belong there; this shared guide stays generic. Without a profile,
 use the plain, specific writing defaults below.
 
-If setup is incomplete, offer `prompts/setup.md` once at an appropriate point.
+If setup is incomplete, offer `System/prompts/setup.md` once at an appropriate point.
 Reuse supplied answers and allow optional questions to be skipped. Keep the
 current task moving; do not repeat setup after completion or an explicit skip.
 
@@ -47,12 +47,12 @@ Work down this list. Stop at the first match.
    the remaining tests for the new work and link its history when useful.
 2. **Does it serve a goal that can be completed?** Something with a finish line
    you could point at. Put it in `01-projects/`. One file when there's a single
-   note so far, using `templates/project-note.md`, with status in its frontmatter;
+   note so far, using `System/templates/project-note.md`, with status in its frontmatter;
    promote to `01-projects/<project>/` with a `README.md` from
-   `templates/project-readme.md` once a second note joins it.
+   `System/templates/project-readme.md` once a second note joins it.
 3. **Does it serve a responsibility that never completes?** A standing obligation
    with no finish line. Put it in `02-areas/`. Same pattern as projects: one file
-   from `templates/area-note.md` to start, promoted to `02-areas/<area>/` with a
+   from `System/templates/area-note.md` to start, promoted to `02-areas/<area>/` with a
    `README.md` once it needs more than one note.
 4. **Everything else is reference.** Put it in `03-resources/`. One file when it's
    one fact; promote to a folder when the subject accumulates enough to need
@@ -82,7 +82,7 @@ One subject routinely lands in three folders at once. The wiki is the only place
 that subject appears as a single thing.
 
 So filing a note is not finishing with it. Once it's placed, open its subject's
-index and link it in. If there is no index, create one from `templates/wiki-note.md`
+index and link it in. If there is no index, create one from `System/templates/wiki-note.md`
 once two or more related notes justify it; a lone note does not need an index.
 And if you are ever tempted to solve a hard filing question by writing the content
 into `00-wiki`, you have answered the wrong question.
@@ -91,30 +91,48 @@ into `00-wiki`, you have answered the wrong question.
 
 ## Things you'll be asked to do
 
-- **Process the inbox:** `prompts/translate.md`, run against `00-raw`.
-- **Bring a folder's README current:** `prompts/project-digest.md`, run against a
+- **Process the inbox:** `System/prompts/translate.md`, run against `00-raw`.
+- **Bring a folder's README current:** `System/prompts/project-digest.md`, run against a
   `01-projects/<name>/` or `02-areas/<name>/` folder.
-- **Retire what's finished:** `prompts/archive-sweep.md`.
-- **Check the vault's health:** `prompts/audit.md`. Reads only, changes nothing.
-- **Refresh the front page:** `prompts/home-digest.md`. Runs automatically as the last
-  step of `prompts/translate.md` and `prompts/archive-sweep.md`; run it by itself if
+- **Retire what's finished:** `System/prompts/archive-sweep.md`.
+- **Check the vault's health:** `System/prompts/audit.md`. Reads only, changes nothing.
+- **Refresh the front page:** `System/prompts/home-digest.md`. Runs automatically as the last
+  step of `System/prompts/translate.md` and `System/prompts/archive-sweep.md`; run it by itself if
   `Home.md` looks stale for some other reason, such as a hand-edited README.
 - **Answer a question about past thinking:** start at `00-wiki` to find the
   subject, follow its links into the buckets, and check `04-archive` if the trail
   goes cold.
-- **Set up the vault:** `prompts/setup.md` for optional local preferences.
-- **Start a project:** `prompts/project-intake.md` for its goal, dates, and actions.
-- **Review a project:** `prompts/project-review.md` for goal, evidence, and blockers.
-- **Create a project, area, or index note:** take the shape from `templates/`
+- **Set up the vault:** `System/prompts/setup.md` for optional local preferences.
+- **Start a project:** `System/prompts/project-intake.md` for its goal, dates, and actions.
+- **Review a project:** `System/prompts/project-review.md` for goal, evidence, and blockers.
+- **Create a project, area, or index note:** take the shape from `System/templates/`
   instead of inventing one.
 
-`prompts/README.md` is the short workflow menu; the user can ask in plain language.
+`System/prompts/README.md` is the core workflow menu. `System/skills/README.md`
+adds briefs, calendar reconciliation, connections, patterns, belief/claim tracking,
+weekly synthesis, and maintenance. Load only the recipe needed for the request;
+the user can ask in plain language. `System/README.md` explains optional setup.
+
+Before substantive ingest, synthesis, a multi-source merge, or authorized bulk
+repairs, follow `System/skills/vault-transaction.md`. Use
+`System/skills/claim-ledger.md` for substantive source claims, not bare tasks or
+inventories. Compare source assertions without treating them as the owner's
+beliefs, and preserve full substantive source coverage and uncertainty.
+
+System recipes keep the same PARA boundaries: substance stays in the actionability
+buckets, `00-wiki` stays index-only, and raw/archive records stay unchanged.
+Optional reports belong under `03-resources/compound/`; activity, contradictions,
+and owner-stated theses are created in Resources only when needed. Runtime logs
+and private report settings stay under ignored `System/` paths. A report request
+does not authorize maintenance writes, and no copied standing permission or
+schedule applies to a new owner. The optional runner is report-only and starts
+no background job by itself. See `System/scripts/README.md` for its prerequisites.
 
 ---
 
 ## Project intake and actionable checklists
 
-Before creating a new active project, follow `prompts/project-intake.md`. Reuse
+Before creating a new active project, follow `System/prompts/project-intake.md`. Reuse
 known facts; gather a concrete goal, start date, end date, and whether the end is
 a firm deadline or target. Dates can explicitly be `undecided`; never invent them
 or use today's date as the project start without support. A project needs a
@@ -124,10 +142,10 @@ Keep one actionable checkbox list in the project note or promoted README, unless
 the user has designated another canonical tracker; in that case, link to it.
 Tasks name concrete actions and observable completion checks. After authorized
 work, update that list, preserve completed work/evidence and dates, then refresh
-status and next actions with `prompts/project-digest.md`. Checkboxes record task
+status and next actions with `System/prompts/project-digest.md`. Checkboxes record task
 progress; confirm the goal before claiming the whole project is complete.
 
-Use `prompts/project-review.md` when the user requests a review or material gaps
+Use `System/prompts/project-review.md` when the user requests a review or material gaps
 arise during project work. Ask only for missing facts or decisions that change
 the next action, and continue independent authorized work. A review alone is
 read-only; edits, archiving, commits, and external actions need their own scope.
@@ -144,7 +162,7 @@ read-only; edits, archiving, commits, and external actions need their own scope.
    there; it does not replace it.
 3. `04-archive/raw` is sealed. Once a capture lands there it is never edited again.
 4. Run the decision list above on every item before filing it.
-5. After confirmation under `prompts/archive-sweep.md`, a finished project,
+5. After confirmation under `System/prompts/archive-sweep.md`, a finished project,
    a dropped area, or a dead resource moves whole into the
    matching `04-archive` subfolder, as a complete folder if it was promoted to
    one, or as the single file if it never grew past that. Live and dead material

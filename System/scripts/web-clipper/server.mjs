@@ -11,7 +11,7 @@ import { bookmarklet } from './public/bookmarklet.js';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const configPath = path.join(root, 'config.local.json');
-const vaultKey = createHash('sha256').update(path.resolve(root, '../..')).digest('hex').slice(0, 16);
+const vaultKey = createHash('sha256').update(path.resolve(root, '../../..')).digest('hex').slice(0, 16);
 
 export async function readConfig() {
   const defaults = JSON.parse(await readFile(path.join(root, 'defaults.json'), 'utf8'));
@@ -19,7 +19,7 @@ export async function readConfig() {
   try { config = JSON.parse(await readFile(configPath, 'utf8')); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
   if (!config.inbox) {
-    const candidate = path.resolve(root, '../..', '00-raw');
+    const candidate = path.resolve(root, '../../..', '00-raw');
     try { if ((await stat(candidate)).isDirectory()) config.inbox = candidate; } catch {}
   }
   return { inbox: '', ...defaults, ...config };

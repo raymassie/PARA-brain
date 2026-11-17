@@ -23,8 +23,8 @@ independent authorized work; do not create a project full of placeholders.
 ## Save one project and one checklist
 
 Search for an existing project before creating another. A first note uses
-`templates/project-note.md`. Promote to a folder and use
-`templates/project-readme.md` only when a second substantive note joins it.
+`System/templates/project-note.md`. Promote to a folder and use
+`System/templates/project-readme.md` only when a second substantive note joins it.
 Preserve custom fields, original dates, completed work, and useful evidence on
 promotion. The project's `started`/`Started` field is its actual stated start,
 not the file creation date; retain any existing creation date separately.
@@ -37,6 +37,6 @@ Record a specific next action, blockers, and relevant decisions without inventin
 scope or deliverables. Mark goal and dates as user-reported unless checked.
 
 Read the saved result, confirm all placeholders are filled or explicitly
-undecided/unknown, and follow `prompts/home-digest.md`. Report the saved path,
+undecided/unknown, and follow `System/prompts/home-digest.md`. Report the saved path,
 next action, and any material unresolved decision. A planned action is not an
 executed result, and checked tasks alone do not prove the finish line was met.

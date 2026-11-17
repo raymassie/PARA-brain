@@ -10,4 +10,4 @@ Refresh `Home.md`'s status section so it reflects what's actually in the vault r
 6. This is a snapshot, not a place for commentary. Link each entry with a relative markdown link (`[name](01-projects/name/README.md)`) rather than a wikilink, for the same reason `Home.md`'s bucket links already do: folder READMEs share a filename and `[[wikilinks]]` can't disambiguate them.
 7. Exclude bucket READMEs, shared to-do notes, and implementation folders from the project count. Keep reported status and uncertainty intact; do not infer completion from dates. Link resource folders to the folder or a real existing entry point, never to an assumed `README.md`.
 
-`prompts/translate.md` and `prompts/archive-sweep.md` both run this automatically as their last step. Run it standalone any other time `Home.md` looks stale, such as after a project or area README was edited by hand.
+`System/prompts/translate.md` and `System/prompts/archive-sweep.md` both run this automatically as their last step. Run it standalone any other time `Home.md` looks stale, such as after a project or area README was edited by hand.

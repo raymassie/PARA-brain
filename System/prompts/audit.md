@@ -1,7 +1,7 @@
 # Vault Audit Prompt
 
 Read the vault and report structural, link, filing, and status problems. This
-workflow changes nothing. Use `prompts/project-review.md` for a project's goal,
+workflow changes nothing. Use `System/prompts/project-review.md` for a project's goal,
 evidence, dependencies, and missing decisions.
 
 Run it every month or so, or any time the vault stops feeling trustworthy. Report findings
@@ -37,7 +37,7 @@ and propose fixes. **Change nothing without confirmation.**
 8. **Stale digests.** Project/area summaries that omit or contradict current dated
    notes, decisions, task progress, or uncommitted work. Compare content and dated
    evidence; filesystem modification times after clone/sync are not reliable.
-   Propose `prompts/project-digest.md` for the affected project or area.
+   Propose `System/prompts/project-digest.md` for the affected project or area.
 9. **Stuck captures.** Anything sitting in `00-raw`. Distinguish flagged tasks still waiting
    on the user (expected, by design) from files that failed to process (a problem).
 10. **Frontmatter drift.** Inconsistent date formats or key names across notes, which will

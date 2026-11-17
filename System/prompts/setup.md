@@ -31,13 +31,28 @@ saving do. If saving is unavailable, state that the answers were not persisted
 and give the user the completed preferences. Do not put personal values into
 shared instructions, Home, templates, or logs. The user can reopen setup anytime.
 
-Finish by pointing to Home's “Ask the Librarian” menu and `prompts/README.md`.
+Finish by pointing to Home's “Ask the Librarian” menu and `System/prompts/README.md`.
 Describe available workflows accurately; selecting one does not mean it ran.
 
+Introduce `System/README.md` and `System/skills/README.md` as the reusable System
+setup. Offer the matching capabilities as needed: briefs, optional calendar
+reconciliation, connections, patterns, beliefs/claims, weekly synthesis, and
+bounded maintenance. Templates are plain Markdown, with no Templater/Dataview
+requirement. Keep substantive notes in the existing PARA buckets.
+
+Explain optional runner setup through `System/scripts/README.md`. Its local
+command, timezone, and calendar allowlist belong in ignored
+`System/assistant.local.json`; owner preferences remain in root
+`config.local.json`. Preserve unrelated settings, and use only choices the user
+supplies. Missing calendar configuration means no query; missing assistant
+configuration means no unattended model call. Do not import a source owner's
+permissions, personal calendars, installed jobs, or selected assistant. No
+schedule, account, or background service is activated by setup alone.
+
 Include the built-in web clipper in the setup handoff. Follow
-`scripts/web-clipper/README.md` for the Node.js prerequisite, platform launcher,
+`System/scripts/web-clipper/README.md` for the Node.js prerequisite, platform launcher,
 and one-time bookmark installation. The helper detects this vault’s `00-raw`;
 personal folder/port overrides stay in its ignored local settings. Explain that
-Save creates a new capture, while `prompts/translate.md` separately processes it
+Save creates a new capture, while `System/prompts/translate.md` separately processes it
 and moves the original unchanged into `04-archive/raw`. Launch or install only
 within the user’s requested setup scope; do not imply a background service exists.

@@ -3,7 +3,7 @@
 Use for “Review my project”, “What information is missing?”, or material gaps
 encountered during authorized project work. Review the relevant project by
 default; inspect all active projects only when asked or a linked dependency needs
-it. `prompts/audit.md` handles structural and link health.
+it. `System/prompts/audit.md` handles structural and link health.
 
 Read the canonical project note/README, goal, dates and their certainty, live task
 list or designated tracker, decisions, evidence, and relevant linked notes.
@@ -31,6 +31,6 @@ answer is outstanding, making material reversible assumptions visible.
 A review alone is read-only: return findings and questions without changing notes,
 profiles, trackers, or logs. During separately authorized project work or a status
 refresh, complete in-scope corrections, update the canonical checklist/status,
-and follow `prompts/project-digest.md`. Preserve evidence and decisions. Stop
+and follow `System/prompts/project-digest.md`. Preserve evidence and decisions. Stop
 when the requested outcome is met or a specific blocker remains. Do not expand
 the goal, commit, publish, spend, or archive merely because the review suggests it.

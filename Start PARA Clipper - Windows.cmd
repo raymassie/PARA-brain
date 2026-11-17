@@ -6,4 +6,4 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-node scripts\web-clipper\start.mjs
+node System\scripts\web-clipper\start.mjs

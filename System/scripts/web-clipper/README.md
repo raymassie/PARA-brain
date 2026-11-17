@@ -15,7 +15,7 @@ Install Node.js first, then start the clipper from the vault root:
 
 - **macOS:** double-click `Start PARA Clipper - macOS.command`.
 - **Windows:** double-click `Start PARA Clipper - Windows.cmd`.
-- **Linux or any terminal:** run `node scripts/web-clipper/start.mjs`.
+- **Linux or any terminal:** run `node System/scripts/web-clipper/start.mjs`.
 
 The launcher installs the pinned dependencies with `npm ci --ignore-scripts` on
 first use, then opens the local clipper. That first launch needs internet access.
@@ -30,7 +30,7 @@ the local helper address, with no personal paths or credentials.
 
 The default destination is the `00-raw` folder beside this repository’s README.
 Settings accepts the full path to another existing inbox. Settings remain in
-ignored `scripts/web-clipper/config.local.json`; `config.example.json` in this
+ignored `System/scripts/web-clipper/config.local.json`; `config.example.json` in this
 folder shows the format. A custom port requires restarting the helper and
 replacing the bookmark using the new setup page.
 
@@ -63,7 +63,7 @@ Saving adds an unsorted source record. It does not call an AI assistant, classif
 the capture, run inbox processing, or change other vault notes.
 
 Ask an assistant with vault file access to **“Read the vault instructions and
-follow prompts/translate.md to process the inbox.”** The Librarian reads each
+follow System/prompts/translate.md to process the inbox.”** The Librarian reads each
 capture, creates or merges a useful note into Projects, Areas, Resources, or the
 appropriate Archive bucket for inactive work, updates relevant wiki indexes when
 justified, moves the untouched original to `04-archive/raw`, and refreshes Home.
@@ -101,7 +101,7 @@ Only the page you explicitly capture is transferred; there is no browsing monito
 Inspected the upstream source on 2026-11-14:
 
 - [Obsidian Web Clipper core API](https://github.com/obsidianmd/obsidian-clipper/blob/main/src/api.ts)
-  separates document input, Defuddle extraction, templates/frontmatter, and output.
+  separates document input, Defuddle extraction, System/templates/frontmatter, and output.
 - [Page capture](https://github.com/obsidianmd/obsidian-clipper/blob/main/src/content.ts)
   reads the live document and selected HTML.
 - [Obsidian output](https://github.com/obsidianmd/obsidian-clipper/blob/main/src/utils/obsidian-note-creator.ts)
@@ -119,8 +119,10 @@ Defuddle engine is retained. Its pinned Node Markdown module is used because
 when upgrading the pinned dependency. Synchronous extraction performs no async
 transcript or other enrichment requests.
 
-Run `npm test --prefix scripts/web-clipper` from the vault root. Tests use isolated
+Run `npm test --prefix System/scripts/web-clipper` from the vault root. Tests use isolated
 temporary inboxes and check extraction, selected passages, provenance, exclusive
 concurrent saves, API protections, retry receipts, and bookmarklet handoff. They
 never create test captures in the real inbox. Browser checks are a separate step.
-Keep the tool source identical in both repositories except `defaults.json`.
+The companion may keep a different operational folder layout. Preserve capture
+behavior across repositories; verify vault-root discovery, launcher paths, and
+local settings when adapting the tool to another layout.
