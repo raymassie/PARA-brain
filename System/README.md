@@ -24,16 +24,22 @@ canonical policy; any assistant with the required file access can follow it.
 | `prompts/` | Core vault setup, filing, project, audit, and weekly workflows |
 | `skills/` | Briefs, calendar reconciliation, connections, patterns, beliefs, claim comparison, and maintenance |
 | `templates/` | Project/area/index shapes and optional capture, reflection, source, decision, and learning notes |
-| `scripts/` | Built-in clipper, optional report runners, calendar reader, and isolated tests |
+| `scripts/` | Built-in clipper, optional report runners, calendar reader, inactive schedule templates, and isolated tests |
 | `assistant.example.json` | Neutral example for the optional report runner |
 | `assistant.local.json` | Your ignored local command, timezone, and optional calendar allowlist |
 | `tag-registry.md` | Optional tag seeds; new subject tags are welcome |
 | `logs/` | Ignored runtime diagnostics and recovery markers, created only when tools run |
+| `.local/launchd/` | Ignored machine-specific schedule definitions; generation does not install jobs |
 
 Capabilities are on demand. Including a workflow installs no automation, selects
 no model or account, grants no permission, and starts no background work. A
 report-only run diagnoses or recommends; it does not process captures or fix
 notes. Maintenance writes require the current user's authorization.
+
+Optional Mac schedule templates and a generator are documented in the
+[tools guide](scripts/README.md#optional-mac-schedules). They reuse this copy's
+report command settings and create inactive definitions only. Installing or
+updating an actual schedule is separate from copying or generating these files.
 
 ## BRAIN capabilities adapted for PARA
 

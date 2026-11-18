@@ -31,6 +31,8 @@ The workflows work interactively with your chosen assistant. Optional local
 report runners need their own configured command and return reports only; they
 do not fix the vault or process the inbox. Including the tools starts no scheduled
 work. See the [tool setup](System/scripts/README.md) before using them.
+Optional [Mac schedule templates](System/scripts/README.md#optional-mac-schedules)
+can generate local job definitions; generation does not install or enable them.
 
 ## Setup
 

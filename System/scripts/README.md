@@ -68,6 +68,44 @@ background services are installed or enabled. Choose and authorize a scheduler
 separately if you later want recurring reports. The historical word “nightly” in
 an entry-point name does not make it run at night.
 
+## Optional Mac schedules
+
+The schedule generator and templates are adapted from PARA-workbench. They use
+this repository's existing `run-workflow.py` runner and private
+`System/assistant.local.json` settings; no assistant is selected by the templates.
+
+| Template | Example time (Mac local time) |
+|---|---|
+| `launchd/morning-brief.plist.template` | Daily 06:00 |
+| `launchd/nightly-lint.plist.template` | Daily 23:30 |
+| `launchd/weekly-synthesis.plist.template` | Sunday 19:00 |
+
+From the vault root, prepare the log folder and generate machine-specific definitions:
+
+```sh
+mkdir -p System/logs
+python3 System/scripts/render-schedules.py
+```
+
+The generator resolves this vault's location and writes the three inactive
+`.plist` files under ignored `System/.local/launchd/`. The default label prefix
+is `org.para-brain`. Use `--vault`, `--output`, or `--label-prefix` to select
+another vault, output folder, or label namespace. Review example times before
+using them; `System/assistant.local.json` controls report-date timezone, while
+these schedule times follow the Mac's local timezone.
+
+Identical definitions can be generated again without changing them. If an
+existing definition differs, generation stops without replacing it; reconcile
+local customizations first. Existing installed jobs are not changed. `RunAtLoad`
+is false in every template, and rendering does not install, load, or enable jobs.
+
+Configure and test your assistant command with the report runners before any
+separately requested installation. Verify it is available in the scheduled job's
+environment; an absolute executable path in private settings avoids relying on
+an interactive terminal's PATH. Keep accounts, calendar names, local paths, and
+generated definitions out of shared templates. Rendering and tests make no live
+assistant or Calendar calls.
+
 ## Optional calendar reading
 
 Interactive calendar reconciliation can use any authorized connector. The local

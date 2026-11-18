@@ -13,3 +13,6 @@ __pycache__/
 # Optional local report configuration and runtime diagnostics
 /System/assistant.local.json
 /System/logs/
+
+# Machine-specific generated schedule definitions
+/System/.local/
